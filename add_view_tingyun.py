@@ -156,8 +156,9 @@ if __name__=='__main__':
     ];
     ipProxylist=[]
     for file in fileList:
-        ipProxylist+=getIpProxyList(file=r'F:\workspace_code\python\tool\IpProxyList1463725884.txt')
+        ipProxylist+=getIpProxyList(file)
+    ipProxylist=list(set(ipProxylist))
     [spider.proxy_queue.put((ip,port)) for (ip,port) in ipProxylist]
-    spider.log_file=open('IpProxyEnableList1463725884.txt','w')
+    spider.log_file=open('IpProxyEnableList1463725885.txt','w')
     # spider.proxy_queue.put(("183.207.228.44","80"))
     [spider().start() for i in range(40)]
